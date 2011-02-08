@@ -24,8 +24,6 @@ my $rowid = 0;
 while($go_on){
   $rowid=$i*30+1;
   my $uri = URI->new("http://www.ejustice.just.fgov.be/cgi_loi/loi_l1.pl?row_id=". $rowid ."&language=nl&sql=dt+not+contains++'FOO'&fromtab=wet_all&tri=dd+AS+RANK+&rech=30&caller=list");
-  my $key;
-  my $val;
   my @results = @{$s->scrape($uri)->{"cn"}};
   foreach(@results) {
     print "$_\n";

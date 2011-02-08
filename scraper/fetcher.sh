@@ -1,6 +1,4 @@
-#!/usr/bin/perl
-use strict;
-use warnings;
+#!/usr/bin/bash
 #
 # This script will fetch all the html pages and stores them in a directory. As an input it wants the data returned by the scraper.pl script in this same directory.
 #
@@ -12,8 +10,9 @@ use warnings;
 # license: AGPL
 #
 #
-use URI;
-my $uri = URI->new("http://www.ejustice.just.fgov.be/cgi_loi/change_lg.pl?language=nl&la=N&table_name=wet&cn=2010042801");
+
+while read a do
+URL="http://www.ejustice.just.fgov.be/cgi_loi/change_lg.pl?language=nl&la=N&table_name=wet&cn=2010042801");
 
 #
 # Example URL:
@@ -26,7 +25,4 @@ my $uri = URI->new("http://www.ejustice.just.fgov.be/cgi_loi/change_lg.pl?langua
 # cn is a lawID built like this: Y+M+D+n°ofLawThatDay
 
 print $s -> scrape($uri);
-
-
-__DATA__
 
