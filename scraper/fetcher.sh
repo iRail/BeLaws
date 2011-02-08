@@ -9,20 +9,12 @@
 # (c) 2011 iRail vzw/asbl
 # license: AGPL
 #
+# usage: bash fetcher.sh < results
 #
 
-while read a do
-URL="http://www.ejustice.just.fgov.be/cgi_loi/change_lg.pl?language=nl&la=N&table_name=wet&cn=2010042801");
+while read a ; do {
+  wget "http://www.ejustice.just.fgov.be/cgi_loi/loi_a1.pl?caller=list&cn=$a&la=N&sql=dt+not+contains+'foo'&language=nl&chercher=t&fromtab=wet_all" -O laws/$a.html ;
+} done
 
-#
-# Example URL:
-#http://www.ejustice.just.fgov.be/cgi_loi/change_lg.pl
-#?language=nl
-#&la=N
-#&table_name=wet
-#&cn=2010042801 → ONLY IMPORTANT VALUE
 #
 # cn is a lawID built like this: Y+M+D+n°ofLawThatDay
-
-print $s -> scrape($uri);
-
