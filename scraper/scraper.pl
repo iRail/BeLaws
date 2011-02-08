@@ -31,3 +31,4 @@ while($go_on){
   $go_on = 0 unless(@results);
   $i++;
 }
+close (RES);
