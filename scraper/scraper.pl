@@ -13,7 +13,7 @@ use strict;
 use warnings;
 use Web::Scraper;
 use URI;
-
+open (RES, '>>results');
 my $s = scraper {
   process '//input[@name="cn"]', 'cn[]' => '@value';
 };
@@ -26,7 +26,7 @@ while($go_on){
   my $uri = URI->new("http://www.ejustice.just.fgov.be/cgi_loi/loi_l1.pl?row_id=". $rowid ."&language=nl&sql=dt+not+contains++'FOO'&fromtab=wet_all&tri=dd+AS+RANK+&rech=30&caller=list");
   my @results = @{$s->scrape($uri)->{"cn"}};
   foreach(@results) {
-    print "$_\n";
+    print RES "$_\n";
   }
   $go_on = 0 unless(@results);
   $i++;
