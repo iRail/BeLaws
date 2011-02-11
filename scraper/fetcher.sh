@@ -19,9 +19,9 @@ n=1
 #as far as I know 1831 is the year Belgium was founded and no laws are made before that
 while [ $y -gt 1831 ] ; do {
 	#add a leading 0 if the number is less than 10
-	[ $n -lt 10 ] && ns=0$n;
-	[ $d -lt 10 ] && ds=0$d;
-	[ $m -lt 10 ] && ms=0$m;
+	[ $n -lt 10 ] && ns=0$n || ns=$n; 
+	[ $d -lt 10 ] && ds=0$d || ds=$d;
+	[ $m -lt 10 ] && ms=0$m || ms=$m;
 	
 	#with cn we're doing the request: concatenation of all parameters
 	cn=$y$ms$ds$ns;
