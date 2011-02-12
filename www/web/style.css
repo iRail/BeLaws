@@ -1,0 +1,31 @@
+body{
+    background-color: #dedede;
+    color: #323232;
+    text-align: center;
+    margin: 0px 0px;
+    
+}
+
+div.header {
+    height: 15px;
+    width: 100%;
+    background-color: #323232;
+    color: #dedede;
+
+}
+
+div.footer{
+    height: 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    position:absolute;
+    bottom:0;
+    color: #dedede;
+    background-color: #323232;
+}
+
+div.body{
+    width: 100%;
+}
+
