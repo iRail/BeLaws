@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <display-name>BeLaws</display-name>
+    <context-param>
+        <description>The pah to the directory where the index is stored</description>
+        <param-name>indexdirectory</param-name>
+        <param-value>/home/pieterc/index</param-value>
+    </context-param>
+    <context-param>
+        <description>The path to the directory where the laws are stored</description>
+        <param-name>lawsdirectory</param-name>
+        <param-value>/home/pieterc/irail/BeLaws/scraper/laws</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>be.iRail.BeLaws.Search</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Indexer</servlet-name>
+        <servlet-class>be.iRail.BeLaws.Indexer</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Indexer</servlet-name>
+        <url-pattern>/indexer</url-pattern>
+    </servlet-mapping>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>0</session-timeout>
     </session-config>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
